@@ -1,0 +1,156 @@
+{
+  "cases": [
+    {
+      "id": "DEMO-001",
+      "label": "Pendaftaran Wisuda – Lengkap",
+      "description": "Semua dokumen tersedia dan valid.",
+      "requirementPreset": "wisuda",
+      "availableDocs": [
+        "Transkrip Nilai",
+        "Ijazah Sementara",
+        "Foto 3x4",
+        "Kartu Tanda Mahasiswa (KTM)",
+        "Surat Bebas Pustaka",
+        "Surat Bebas Laboratorium",
+        "Bukti Pembayaran UKT",
+        "Formulir Pendaftaran Wisuda"
+      ]
+    },
+    {
+      "id": "DEMO-002",
+      "label": "Pendaftaran Wisuda – Kurang Surat Bebas",
+      "description": "Surat bebas perpustakaan dan laboratorium belum tersedia.",
+      "requirementPreset": "wisuda",
+      "availableDocs": [
+        "Transkrip Nilai",
+        "Ijazah Sementara",
+        "Foto 3x4",
+        "Kartu Tanda Mahasiswa (KTM)",
+        "Bukti Pembayaran UKT",
+        "Formulir Pendaftaran Wisuda"
+      ]
+    },
+    {
+      "id": "DEMO-003",
+      "label": "Pengajuan Beasiswa – Lengkap",
+      "description": "Semua dokumen beasiswa tersedia.",
+      "requirementPreset": "beasiswa",
+      "availableDocs": [
+        "Transkrip Nilai",
+        "Kartu Tanda Mahasiswa (KTM)",
+        "Surat Keterangan Aktif Kuliah",
+        "Surat Rekomendasi Dosen",
+        "Slip Gaji Orang Tua",
+        "Kartu Keluarga",
+        "Foto 3x4",
+        "Esai Motivasi"
+      ]
+    },
+    {
+      "id": "DEMO-004",
+      "label": "Pengajuan Beasiswa – Kurang Dokumen Keuangan",
+      "description": "Slip gaji dan kartu keluarga belum tersedia.",
+      "requirementPreset": "beasiswa",
+      "availableDocs": [
+        "Transkrip Nilai",
+        "Kartu Tanda Mahasiswa (KTM)",
+        "Surat Keterangan Aktif Kuliah",
+        "Surat Rekomendasi Dosen",
+        "Foto 3x4",
+        "Esai Motivasi"
+      ]
+    },
+    {
+      "id": "DEMO-005",
+      "label": "Cuti Akademik – Lengkap",
+      "description": "Semua dokumen pengajuan cuti tersedia.",
+      "requirementPreset": "cuti",
+      "availableDocs": [
+        "Kartu Tanda Mahasiswa (KTM)",
+        "Formulir Pengajuan Cuti",
+        "Surat Persetujuan Orang Tua",
+        "Bukti Pembayaran UKT",
+        "Surat Keterangan dari Dosen Pembimbing"
+      ]
+    },
+    {
+      "id": "DEMO-006",
+      "label": "Cuti Akademik – Tanpa Persetujuan Orang Tua",
+      "description": "Surat persetujuan orang tua belum ada.",
+      "requirementPreset": "cuti",
+      "availableDocs": [
+        "Kartu Tanda Mahasiswa (KTM)",
+        "Formulir Pengajuan Cuti",
+        "Bukti Pembayaran UKT",
+        "Surat Keterangan dari Dosen Pembimbing"
+      ]
+    },
+    {
+      "id": "DEMO-007",
+      "label": "Beasiswa – Kondisi Belum Dapat Ditentukan",
+      "description": "Semua dokumen tersedia, tetapi kondisi pada dua persyaratan (IPK dan penghasilan) tidak dapat diverifikasi dari nama dokumen saja.",
+      "requirementPreset": "beasiswa_kondisi",
+      "availableDocs": [
+        "Transkrip Nilai",
+        "Kartu Tanda Mahasiswa (KTM)",
+        "Surat Keterangan Aktif Kuliah",
+        "Surat Rekomendasi Dosen",
+        "Slip Gaji Orang Tua",
+        "Kartu Keluarga",
+        "Foto 3x4",
+        "Esai Motivasi"
+      ]
+    }
+  ],
+  "presets": {
+    "wisuda": {
+      "label": "Pendaftaran Wisuda",
+      "requirements": [
+        "Transkrip Nilai",
+        "Ijazah Sementara",
+        "Foto 3x4",
+        "Kartu Tanda Mahasiswa (KTM)",
+        "Surat Bebas Pustaka",
+        "Surat Bebas Laboratorium",
+        "Bukti Pembayaran UKT",
+        "Formulir Pendaftaran Wisuda"
+      ]
+    },
+    "beasiswa": {
+      "label": "Pengajuan Beasiswa",
+      "requirements": [
+        "Transkrip Nilai",
+        "Kartu Tanda Mahasiswa (KTM)",
+        "Surat Keterangan Aktif Kuliah",
+        "Surat Rekomendasi Dosen",
+        "Slip Gaji Orang Tua",
+        "Kartu Keluarga",
+        "Foto 3x4",
+        "Esai Motivasi"
+      ]
+    },
+    "cuti": {
+      "label": "Cuti Akademik",
+      "requirements": [
+        "Kartu Tanda Mahasiswa (KTM)",
+        "Formulir Pengajuan Cuti",
+        "Surat Persetujuan Orang Tua",
+        "Bukti Pembayaran UKT",
+        "Surat Keterangan dari Dosen Pembimbing"
+      ]
+    },
+    "beasiswa_kondisi": {
+      "label": "Beasiswa (dengan kondisi)",
+      "requirements": [
+        "Transkrip Nilai — IPK minimal 3.00",
+        "Kartu Tanda Mahasiswa (KTM)",
+        "Surat Keterangan Aktif Kuliah",
+        "Surat Rekomendasi Dosen",
+        "Slip Gaji Orang Tua — penghasilan di bawah UMR",
+        "Kartu Keluarga",
+        "Foto 3x4",
+        "Esai Motivasi"
+      ]
+    }
+  }
+}
