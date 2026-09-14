@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Student Document Audit Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="header-brand">
+        <span class="header-icon">📋</span>
+        <div>
+          <h1>AI Student Document Audit Assistant</h1>
+          <p class="header-sub">Periksa kelengkapan dokumen administrasi mahasiswa</p>
+        </div>
+      </div>
+      <span class="badge-demo">Demo &amp; Edukatif</span>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- DISCLAIMER -->
+    <div class="notice">
+      <strong>Catatan:</strong> Aplikasi ini hanya untuk tujuan demo dan edukatif. Hasil audit bersifat informatif dan
+      <em>tidak</em> merupakan verifikasi resmi dari instansi mana pun. Selalu konfirmasi persyaratan ke bagian akademik
+      atau kemahasiswaan kampus Anda.
+    </div>
+
+    <!-- PANEL: INPUT -->
+    <section class="card" id="section-input">
+      <h2 class="card-title">1. Data Audit</h2>
+
+      <!-- Preset loader -->
+      <div class="form-group">
+        <label for="preset-select">Muat Kasus Demo</label>
+        <div class="row-inline">
+          <select id="preset-select">
+            <option value="">— Pilih kasus demo —</option>
+          </select>
+          <button id="btn-load-demo" class="btn btn-secondary">Muat</button>
+        </div>
+        <span class="hint">Pilih salah satu kasus demo untuk mengisi form secara otomatis.</span>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Requirement preset quick-fill -->
+      <div class="form-group">
+        <label>Preset Persyaratan</label>
+        <div id="preset-buttons" class="chip-group"></div>
+        <span class="hint">Klik preset untuk mengisi daftar persyaratan secara otomatis.</span>
+      </div>
+
+      <!-- Requirements textarea -->
+      <div class="form-group">
+        <label for="input-requirements">Daftar Persyaratan Dokumen <span class="required">*</span></label>
+        <textarea id="input-requirements" rows="6"
+          placeholder="Masukkan satu dokumen per baris, contoh:&#10;Transkrip Nilai&#10;Transkrip Nilai — IPK minimal 3.00&#10;Foto 3x4&#10;Kartu Tanda Mahasiswa (KTM)"></textarea>
+        <span class="hint">Satu dokumen per baris. Tambahkan kondisi setelah tanda <strong>—</strong> untuk persyaratan bersyarat, misal: <em>Transkrip Nilai — IPK minimal 3.00</em>. Sistem akan menandai kondisi yang tidak dapat diverifikasi sebagai "Belum dapat ditentukan".</span>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Informasi Dokumen table -->
+      <div class="form-group">
+        <label>Informasi Dokumen yang Tersedia <span class="required">*</span></label>
+        <span class="hint" style="margin-bottom:.6rem">
+          Tambahkan dokumen yang sudah Anda miliki. Format, tanggal, dan catatan bersifat opsional —
+          tapi semakin lengkap, semakin akurat hasil auditnya.
+        </span>
+        <div id="doc-info-list" class="doc-info-list"></div>
+        <button id="btn-add-doc" type="button" class="btn btn-ghost btn-add-doc">+ Tambah Dokumen</button>
+      </div>
+
+      <div class="form-actions">
+        <button id="btn-audit" class="btn btn-primary">🔍 Audit Dokumen</button>
+        <button id="btn-reset" class="btn btn-ghost">Reset</button>
+      </div>
+    </section>
+
+    <!-- PANEL: RESULTS (hidden until audit runs) -->
+    <section class="card" id="section-results" hidden>
+      <h2 class="card-title">2. Hasil Audit</h2>
+
+      <!-- Overall status -->
+      <div id="result-status" class="status-banner"></div>
+
+      <div class="results-grid">
+
+        <!-- Completed -->
+        <div class="result-block" id="block-completed">
+          <h3 class="result-block-title result-ok">✅ Terpenuhi</h3>
+          <ul id="list-completed" class="result-list"></ul>
+        </div>
+
+        <!-- Missing -->
+        <div class="result-block" id="block-missing">
+          <h3 class="result-block-title result-error">❌ Belum Tersedia</h3>
+          <ul id="list-missing" class="result-list"></ul>
+        </div>
+
+      </div>
+
+      <!-- Ambiguous -->
+      <div class="result-block" id="block-ambiguous">
+        <h3 class="result-block-title result-ambiguous">🔎 Belum Dapat Ditentukan</h3>
+        <ul id="list-ambiguous" class="result-list"></ul>
+      </div>
+
+      <!-- Potential issues -->
+      <div class="result-block" id="block-issues">
+        <h3 class="result-block-title result-warn">⚠️ Potensi Masalah</h3>
+        <ul id="list-issues" class="result-list"></ul>
+      </div>
+
+      <!-- Recommended actions -->
+      <div class="result-block" id="block-actions">
+        <h3 class="result-block-title result-info">💡 Rekomendasi Tindakan</h3>
+        <ol id="list-actions" class="result-list"></ol>
+      </div>
+
+      <div class="form-actions">
+        <button id="btn-audit-again" class="btn btn-secondary">← Audit Ulang</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>AI Student Document Audit Assistant &mdash; Demo Edukatif &mdash; Tidak ada data yang dikirim ke server.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
